@@ -1,17 +1,39 @@
-var score=document.getElementById("score");
-var secs = document.getElementById("compteur");
 var buttonStart = document.getElementById("btn-start");
+buttonStart.addEventListener('click', () => {
+var score=document.getElementById("score");
+var secs;
 var Interval; 
-
 const cards=document.querySelectorAll('.case');
 let hasFlippedCard=false;
 let lockBoard=false;
 let firstCard,secondCard;
-
-buttonStart.addEventListener('click', () => {
-    clearInterval(Interval);
-    Interval = setInterval(diminuerCompteur, 1000);  
+var dips1=document.getElementById("timer-display1");
+var dips2=document.getElementById("timer-display2");
+var easy=document.getElementById("easy");
+var medium=document.getElementById("medium");
+var hard=document.getElementById("hard");
+var help=document.getElementById("help");
+easy.addEventListener("click",()=>{
+    dips1.style.visibility="visible";
+    secs= document.getElementById("compteur1");
+    help.style.visibility="visible";
 });
+help.addEventListener('click',()=>{
+    helpic=document.querySelectorAll("[data-name='koala']");
+    helpic[0].classList.add("turn");
+    helpic[1].classList.add("turn");
+})
+medium.addEventListener("click",()=>{
+    dips1.style.visibility="visible";
+    secs= document.getElementById("compteur1");
+});
+hard.addEventListener("click",()=>{
+    dips2.style.visibility="visible";
+    secs= document.getElementById("compteur2");
+});
+
+clearInterval(Interval);
+Interval = setInterval(diminuerCompteur, 1000);  
 function diminuerCompteur(){
     var compteur = Number(secs.textContent);
     if (compteur > 1) 
@@ -91,6 +113,7 @@ function resetBoard()
             card.style.order=randomPos;
         })
 })();
-
 cards.forEach(card => card.addEventListener('click',flipCard));
+})
+
 

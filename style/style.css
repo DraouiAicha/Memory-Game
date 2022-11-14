@@ -33,6 +33,14 @@ body {
     margin-top: 6.5%;
     padding: 10px 10px;
 }
+#timer-display1
+{
+    visibility: hidden;
+}
+#timer-display2
+{
+    visibility: hidden;
+}
 button
 {
     width: 100px;
@@ -74,7 +82,10 @@ box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 transform: scale(0.97);
 transition: transform .2s;
 }
-  
+.turn
+{
+    transform: rotateY(180deg);
+}
 .case.flip {
 transform: rotateY(180deg);
 }
